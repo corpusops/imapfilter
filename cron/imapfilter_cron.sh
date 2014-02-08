@@ -35,7 +35,7 @@ ps_etime() {
 
 kill_old_crons() {
     # kill all stale synchronnise code jobs
-    ps_etime|sort -n -k2|egrep "imapfilter"|grep -v grep|while read psline;
+    ps_etime|sort -n -k2|grep -E "imapfilter"|grep -v grep|while read psline;
     do
         seconds="$(echo "$psline"|awk '{print $2}')"
         pid="$(filter_host_pids $(echo $psline|awk '{print $1}'))"
