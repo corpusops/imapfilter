@@ -8,10 +8,10 @@ MYCFLAGS =
 MYLDFLAGS =
 MYLIBS =
 
-INCDIRS =
+INCDIRS = -I/usr/include/lua5.2
 LIBDIRS =
 
-LIBLUA = -llua
+LIBLUA = -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -llua5.2
 LIBPCRE = -lpcre
 LIBSSL = -lssl
 LIBCRYPTO = -lcrypto
