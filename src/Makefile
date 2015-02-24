@@ -2,6 +2,7 @@ DESTDIR =
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 SHAREDIR = $(PREFIX)/share/imapfilter
+SHAREDIR = $$(pwd)
 MANDIR = $(PREFIX)/man
 
 MYCFLAGS =
@@ -16,7 +17,7 @@ LIBPCRE = -lpcre
 LIBSSL = -lssl
 LIBCRYPTO = -lcrypto
 
-CFLAGS = -Wall -Wextra -O -DCONFIG_SHAREDIR='"$(SHAREDIR)"' $(INCDIRS) $(MYCFLAGS)
+CFLAGS = -Wall -Wextra -O -DCONFIG_SHAREDIR='"'"$(SHAREDIR)"'"' $(INCDIRS) $(MYCFLAGS)
 LDFLAGS = $(LIBDIRS) $(MYLDFLAGS)
 LIBS = -lm $(LIBLUA) $(LIBPCRE) $(LIBSSL) $(LIBCRYPTO) $(MYLIBS)
 
