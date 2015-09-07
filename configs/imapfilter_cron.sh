@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # run all lua configs in configs, suitable for cron use
+# apt-get install libpcre3-dev  liblua5.2-dev  liblua5.2
+# make
 if [ "x${CRON_DEBUG}" != "x" ];then
     set -x
 fi
