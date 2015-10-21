@@ -69,7 +69,7 @@ if [ -f ${lock} ];then
 else
     touch "${lock}"
     cd $cwd/..
-    find configs -type f -name "*.lua" | while read config
+    find configs -type f -or -type l -name "*.lua" | while read config
     do
         ./src/imapfilter -c "${config}" >/dev/null 2>&1
         # ./src/imapfilter -v -c "${config}" 
