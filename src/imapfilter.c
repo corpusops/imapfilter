@@ -108,7 +108,7 @@ main(int argc, char *argv[])
 
 	SSL_library_init();
 	SSL_load_error_strings();
-	ssl3ctx = SSL_CTX_new(SSLv3_client_method());
+	//ssl3ctx = SSL_CTX_new(SSLv3_client_method());
 	ssl23ctx = SSL_CTX_new(SSLv23_client_method());
 	tls1ctx = SSL_CTX_new(TLSv1_client_method());
 #if OPENSSL_VERSION_NUMBER >= 0x01000100fL
@@ -116,7 +116,7 @@ main(int argc, char *argv[])
 	tls12ctx = SSL_CTX_new(TLSv1_2_client_method());
 #endif
 	if (exists_dir(opts.truststore)) {
-		SSL_CTX_load_verify_locations(ssl3ctx, NULL, opts.truststore);
+		//SSL_CTX_load_verify_locations(ssl3ctx, NULL, opts.truststore);
 		SSL_CTX_load_verify_locations(ssl23ctx, NULL, opts.truststore);
 		SSL_CTX_load_verify_locations(tls1ctx, NULL, opts.truststore);
 #if OPENSSL_VERSION_NUMBER >= 0x01000100fL
