@@ -69,11 +69,15 @@ if [ -f ${lock} ];then
 else
     touch "${lock}"
     cd $cwd/..
-    find configs -type f -or -type l -name "*.lua" | while read config
-    do
-        ./src/imapfilter -c "${config}" >/dev/null 2>&1
-        # ./src/imapfilter -v -c "${config}" 
-    done
+    while read config; do
+        if [ "x${DEBUG}" != "x" ];then
+            set -x
+            ./src/imapfilter -c "${config}"
+            set +x
+        else
+            ./src/imapfilter -c "${config}" >/dev/null 2>&1
+        fi
+    done < <( find configs \( -type f -or -type l \) -and -name "*.lua" )
     rm -f "${lock}"
 fi
 # vim:set et sts=4 ts=4 tw=80:
