@@ -19,7 +19,7 @@ LIBPCRE = -lpcre2-8
 LIBSSL = -lssl
 LIBCRYPTO = -lcrypto
 
-CFLAGS = -Wall -Wextra -O \
+CFLAGS = -Wall -Wextra -O -DOPENSSL_NO_SSL3_METHOD=1\
 	 -DCONFIG_SHAREDIR='"'"$(SHAREDIR)"'"' \
 	 -DCONFIG_SSL_CAPATH='"$(SSLCAPATH)"' \
 	 -DCONFIG_SSL_CAFILE='"$(SSLCAFILE)"' \
