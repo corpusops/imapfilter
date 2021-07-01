@@ -1,2 +1,5 @@
 *.o
 imapfilter
+/configs
+!/configs/.empty
+!/configs/*.sh
