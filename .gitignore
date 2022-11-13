@@ -3,3 +3,4 @@ imapfilter
 /configs
 !/configs/.empty
 !/configs/*.sh
+*/.filter_lock*
