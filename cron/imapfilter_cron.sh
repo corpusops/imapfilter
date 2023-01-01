@@ -77,7 +77,7 @@ else
         else
             ./src/imapfilter -c "${config}" >/dev/null 2>&1
         fi
-    done < <( find configs \( -type f -or -type l \) -and -name "*.lua" )
+    done < <( find -L configs \( -type f -or -type l \) -and -name "*.lua" )
     rm -f "${lock}"
 fi
 # vim:set et sts=4 ts=4 tw=80:
